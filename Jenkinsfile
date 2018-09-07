@@ -1,4 +1,4 @@
-node("slave") {
+node {
     stages {
         stage('Build') {
             steps {
