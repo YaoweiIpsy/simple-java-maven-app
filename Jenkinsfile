@@ -13,5 +13,9 @@ pipeline {
                 }
             }
         }
+        stage('test') {
+            echo("------ ${version}")
+        }
+
     }
 }
