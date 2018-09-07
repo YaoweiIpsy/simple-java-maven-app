@@ -1,15 +1,17 @@
-node {
+pipeline {
+    agent any
     stages {
-        stage('Build') {
+        stage('somestage') {
             steps {
-                def version = sh ( script: "hostname" , returnStdout: true ).trim()
-                sh "Build $version"
+                script {
+                    def version = sh (
+                        script: "hostname",
+                        returnStdout: true
+                    ).trim()
+                    sh "echo Building project in version: $version"
+
+                }
             }
         }
-        stage('Test') {
-            steps {
-                sh "Test $version"
-            }
-         }
     }
 }
